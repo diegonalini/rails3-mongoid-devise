@@ -18,5 +18,4 @@ pickle-email-*.html
 .project
 .git/*
 tmp
-tmp
 .git

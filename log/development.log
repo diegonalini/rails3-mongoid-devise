@@ -2205,3 +2205,89 @@ Processing by Devise::SessionsController#new as HTML
   Rendered layouts/_navigation.html.erb (1.0ms)
   Rendered layouts/_messages.html.erb (0.1ms)
 Completed 200 OK in 44ms (Views: 43.7ms)
+
+
+Started GET "/" for 192.168.1.91 at 2013-02-04 20:33:07 -0800
+Processing by HomeController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (1.6401ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=rails3_mongoid_devise_development collection=users selector={} flags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil (56.9053ms)
+  Rendered home/index.haml within layouts/application (62.4ms)
+  Rendered layouts/_navigation.haml (3.1ms)
+  Rendered layouts/_messages.haml (0.9ms)
+Completed 200 OK in 241ms (Views: 240.7ms)
+
+
+Started GET "/users/50f5d4f48c28eaf6f4000001" for 192.168.1.91 at 2013-02-04 20:33:10 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"50f5d4f48c28eaf6f4000001"}
+Completed 401 Unauthorized in 10ms
+
+
+Started GET "/users/sign_in" for 192.168.1.91 at 2013-02-04 20:33:10 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.haml (3.9ms)
+  Rendered /home/ubuntu/.rvm/gems/ruby-1.9.3-p374/gems/devise-2.2.3/app/views/devise/sessions/new.html.erb within layouts/application (8.7ms)
+  Rendered layouts/_navigation.haml (0.6ms)
+  Rendered layouts/_messages.haml (0.1ms)
+Completed 200 OK in 25ms (Views: 24.0ms)
+
+
+Started POST "/users/sign_in" for 192.168.1.91 at 2013-02-04 20:33:19 -0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yX7W1h6Mcd6GaarA/ZNpUcGcd0rt1gRz8Rg4JaU7RyU=", "user"=>{"email"=>"diegonalini@yahoo.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6218ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=rails3_mongoid_devise_development collection=users selector={"$query"=>{"email"=>"diegonalini@yahoo.com"}, "$orderby"=>{:_id=>1}} flags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil (0.4063ms)
+  MOPED: 127.0.0.1:27017 UPDATE       database=rails3_mongoid_devise_development collection=users selector={"_id"=>"50f5d4f48c28eaf6f4000001"} update={"$set"=>{"last_sign_in_at"=>2013-01-16 00:42:27 UTC, "current_sign_in_at"=>2013-02-05 04:33:20 UTC, "last_sign_in_ip"=>"192.168.1.91", "sign_in_count"=>3, "updated_at"=>2013-02-05 04:33:20 UTC}} flags=[] (0.6816ms)
+Redirected to http://192.168.1.91:3000/users/50f5d4f48c28eaf6f4000001
+Completed 302 Found in 125ms
+
+
+Started GET "/users/50f5d4f48c28eaf6f4000001" for 192.168.1.91 at 2013-02-04 20:33:20 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"50f5d4f48c28eaf6f4000001"}
+  MOPED: 127.0.0.1:27017 QUERY        database=rails3_mongoid_devise_development collection=users selector={"$query"=>{"_id"=>"50f5d4f48c28eaf6f4000001"}, "$orderby"=>{:_id=>1}} flags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil (0.3984ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=rails3_mongoid_devise_development collection=users selector={"_id"=>"50f5d4f48c28eaf6f4000001"} flags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil (0.1862ms)
+  Rendered users/show.haml within layouts/application (1.6ms)
+  Rendered layouts/_navigation.haml (0.9ms)
+  Rendered layouts/_messages.haml (0.2ms)
+Completed 200 OK in 27ms (Views: 20.8ms)
+
+
+Started GET "/users/50f5d4f48c28eaf6f4000001" for 192.168.1.91 at 2013-02-04 20:46:46 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"50f5d4f48c28eaf6f4000001"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (1.0033ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=rails3_mongoid_devise_development collection=users selector={"$query"=>{"_id"=>"50f5d4f48c28eaf6f4000001"}, "$orderby"=>{:_id=>1}} flags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil (0.2356ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=rails3_mongoid_devise_development collection=users selector={"_id"=>"50f5d4f48c28eaf6f4000001"} flags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil (0.1907ms)
+  Rendered users/show.haml within layouts/application (1.6ms)
+  Rendered layouts/_navigation.haml (4.0ms)
+  Rendered layouts/_messages.haml (0.7ms)
+Completed 200 OK in 109ms (Views: 92.7ms)
+
+
+Started DELETE "/users/sign_out" for 192.168.1.91 at 2013-02-04 20:46:50 -0800
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"yX7W1h6Mcd6GaarA/ZNpUcGcd0rt1gRz8Rg4JaU7RyU="}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6986ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=rails3_mongoid_devise_development collection=users selector={"$query"=>{"_id"=>"50f5d4f48c28eaf6f4000001"}, "$orderby"=>{:_id=>1}} flags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil (0.3238ms)
+Redirected to http://192.168.1.91:3000/
+Completed 302 Found in 37ms
+
+
+Started GET "/" for 192.168.1.91 at 2013-02-04 20:46:50 -0800
+Processing by HomeController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=rails3_mongoid_devise_development collection=users selector={} flags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil (0.6032ms)
+  Rendered home/index.haml within layouts/application (4.0ms)
+  Rendered layouts/_navigation.haml (0.8ms)
+  Rendered layouts/_messages.haml (0.1ms)
+Completed 200 OK in 13ms (Views: 12.2ms)
+
+
+Started GET "/" for 192.168.1.91 at 2013-02-04 21:04:40 -0800
+Processing by HomeController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (4.3869ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=rails3_mongoid_devise_development collection=users selector={} flags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil (0.3204ms)
+  Rendered home/index.haml within layouts/application (9.8ms)
+  Rendered layouts/_navigation.haml (26.3ms)
+  Rendered layouts/_messages.haml (1.0ms)
+Completed 200 OK in 113ms (Views: 112.3ms)
