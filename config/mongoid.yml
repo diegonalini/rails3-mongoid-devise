@@ -69,9 +69,11 @@ development:
 test:
   sessions:
     default:
-      database: rails3_mongoid_devise_test
+      database: railsdevisemongo
       hosts:
-        - localhost:27017
+        - <%=ENV['OPENSHIFT_MONGODB_DB_HOST']%>:<%=ENV['OPENSHIFT_MONGODB_DB_PORT']%>
+      username: <%=ENV['OPENSHIFT_MONGODB_DB_USERNAME']%>
+      password: <%=ENV['OPENSHIFT_MONGODB_DB_PASSWORD']%>
       options:
         consistency: :strong
         # In the test environment we lower the retries and retry interval to
